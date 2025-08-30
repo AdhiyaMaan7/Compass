@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gyroscope Orientation</title>
+  </head>
+  <body>
+    <h2>Device Orientation</h2>
+    <p id="output"></p>
+
+    <script>
+      // Check if supported
+      if (window.DeviceOrientationEvent) {
+        window.addEventListener("deviceorientation", function (event) {
+          let alpha = event.alpha; // Z-axis (compass)
+          let beta = event.beta; // X-axis (front/back tilt)
+          let gamma = event.gamma; // Y-axis (left/right tilt)
+
+          document.getElementById("output").innerHTML =
+            "Alpha (Z/Yaw): " +
+            alpha.toFixed(2) +
+            "<br>" +
+            "Beta (X/Pitch): " +
+            beta.toFixed(2) +
+            "<br>" +
+            "Gamma (Y/Roll): " +
+            gamma.toFixed(2);
+        });
+      } else {
+        document.getElementById("output").innerHTML =
+          "Device Orientation not supported.";
+      }
+    </script>
+  </body>
+</html>
