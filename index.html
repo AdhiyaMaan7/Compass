@@ -10,12 +10,18 @@
         padding: 40px;
         font-family: sans-serif;
         color: blueviolet;
+
+        span{
+
+          font-size:100px;font-weight:bold;
+        }
+        
       }
     </style>
   </head>
   <body>
     <h2>Device Orientation</h2>
-    <p id="output"></p>
+    <p id="output"></p><span></span>
 
     <script>
       // Check if supported
@@ -28,14 +34,14 @@
           let gamma = event.gamma; // Y-axis (left/right tilt)
 
           document.getElementById("output").innerHTML =
-            "Alpha Z: spin flat(compass direction)" + 
-            Math.round(alpha) +
-            "<br><br><br><br><br><br><br><br><br><br><br>" +
-            "Beta X: tilt forward/backward " +
-            Math.round(beta) +
-            "<br><br><br><br><br><br><br><br><br><br><br>" +
-            "Gamma Y: tilt left/right" +
-            Math.round(gamma);
+            `Alpha Z: spin flat(compass direction)<br>
+            <span>${Math.round(alpha)}</span>
+            <br><br><br><br><br><br><br><br><br><br>
+            Beta X: tilt forward/backward<br>
+            <span>${Math.round(beta)}</span>
+            <br><br><br><br><br><br><br><br><br><br>
+            Gamma Y: tilt left/right<br>
+            <span>${Math.round(gamma)}</span>`;
         });
       } else {
         document.getElementById("output").innerHTML =
