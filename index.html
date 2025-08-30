@@ -3,11 +3,13 @@
   <head>
     <title>Gyroscope Orientation</title>
 
-    <style >
+    <style>
       #output{
 
-        font-size:30px;
-        padding:40px;
+        font-size: 30px;
+        padding: 40px;
+        font-family: sans-serif;
+        color: blueviolet;
       }
     </style>
   </head>
@@ -17,6 +19,8 @@
 
     <script>
       // Check if supported
+
+      
       if (window.DeviceOrientationEvent) {
         window.addEventListener("deviceorientation", function (event) {
           let alpha = event.alpha; // Z-axis (compass)
@@ -24,14 +28,14 @@
           let gamma = event.gamma; // Y-axis (left/right tilt)
 
           document.getElementById("output").innerHTML =
-            "Alpha (Z/Yaw): " +
-            alpha.toFixed(2) +
-            "<br><br><br>" +
-            "Beta (X/Pitch): " +
-            beta.toFixed(2) +
-            "<br><br><br>" +
-            "Gamma (Y/Roll): " +
-            gamma.toFixed(2);
+            "Alpha Z: spin flat(compass direction)" + 
+            Math.round(alpha) +
+            "<br><br><br><br><br><br><br><br><br><br><br>" +
+            "Beta X: tilt forward/backward " +
+            Math.round(beta) +
+            "<br><br><br><br><br><br><br><br><br><br><br>" +
+            "Gamma Y: tilt left/right" +
+            Math.round(gamma);
         });
       } else {
         document.getElementById("output").innerHTML =
