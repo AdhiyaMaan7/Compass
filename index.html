@@ -1,52 +1,79 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Gyroscope Orientation</title>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compass</title>
 
     <style>
-      #output{
 
-        font-size: 30px;
-        padding: 40px;
-        font-family: sans-serif;
-        color: blueviolet;
-
-        span{
-          font-size:100px;
-          font-weight:bold;
+        *{
+            margin: 0;
+            padding: 0;
         }
+        body{
+
+            background-color: blueviolet;
+            width: 100%;
+            height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .outer_box{
+            width: 300px;
+            height: 300px;
+            /* background-color: rgb(210, 195, 30); */
+            background-image: url('Compass.png');
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .inner_box{
+
+            width: 224px;
+            height: 224px;
+            /* background-color: rgba(0, 0, 0, 0.313); */
+            border-radius: 50%;
+            rotate: 0deg;
+            /* transition: 1s; */
+            transition-delay: 0.1s;
+          
+
+        }
+        /* .inner_box:hover{
+
+            rotate: 100deg;
+
+        } */
         
-      }
+
     </style>
-  </head>
-  <body>
-    <h2>Device Orientation</h2>
-    <p id="output"></p>
+</head>
+<body>
+
+
+    <div class="outer_box">
+        <div class="inner_box">
+
+            <img src="Arrow.png" alt="">
+
+        </div>
+    </div>
 
     <script>
-      // Check if supported
 
-      
-      if (window.DeviceOrientationEvent) {
-        window.addEventListener("deviceorientation", function (event) {
-          let alpha = event.alpha; // Z-axis (compass)
-          let beta = event.beta; // X-axis (front/back tilt)
-          let gamma = event.gamma; // Y-axis (left/right tilt)
+        addEventListener('deviceorientation', (event) => {
 
-          document.getElementById("output").innerHTML =
-            `Alpha Z: spin flat(compass direction)<br>
-            <span>${Math.round(alpha)}</span>
-            <br><br><br><br><br><br><br><br><br><br>
-            Beta X: tilt forward/backward<br>
-            <span>${Math.round(beta)}</span>
-            <br><br><br><br><br><br><br><br><br><br>
-            Gamma Y: tilt left/right<br>
-            <span>${Math.round(gamma)}</span>`;
-        });
-      } else {
-        document.getElementById("output").innerHTML =
-          "Device Orientation not supported.";
-      }
+
+            document.querySelector('inner_box').style.rotate= `${event.alpha}deg`
+
+            // console.log(event.alpha)
+        })
     </script>
-  </body>
+    
+</body>
 </html>
