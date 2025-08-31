@@ -40,9 +40,9 @@
             height: 224px;
             /* background-color: rgba(0, 0, 0, 0.313); */
             border-radius: 50%;
-            rotate: 5deg;
-            transition: 1s;
-/*             transition-delay: 0.1s; */
+            rotate: 00deg;
+/*             transition: 1s; */
+            /* transition-delay: 0.1s; */
           
 
         }
@@ -85,15 +85,10 @@
     <div class="alpha">Alpha: <span>00</span></div>
 
     <script>
-
-        addEventListener('deviceorientation', (event) => {
-
-
+    const Compass = 'deviceorientation'; window.addEventListener(Compass, (event) => {
             document.querySelector('.inner_box').style.rotate= Math.round(event.alpha) + "deg";
-            document.querySelector('.alpha').innerHTML= `Alpha: <span>${Math.round(event.alpha)}</span>`;
-
-           
-        })
+            document.querySelector('.alpha').innerHTML= `Alpha: <span>${Math.round(event.alpha)}</span>`;           
+        });
     </script>
     
 </body>
