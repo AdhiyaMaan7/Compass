@@ -85,10 +85,17 @@
     <div class="alpha">Alpha: <span>00</span></div>
 
     <script>
-    const Compass = 'deviceorientation'; window.addEventListener(Compass, (event) => {
+
+        const Compass = 'deviceorientation'
+
+       window.addEventListener(Compass, (event) => {
+
+
             document.querySelector('.inner_box').style.rotate= Math.round(event.alpha) + "deg";
-            document.querySelector('.alpha').innerHTML= `Alpha: <span>${Math.round(event.alpha)}</span>`;           
-        });
+            document.querySelector('.alpha').innerHTML= `Alpha: <span>${Math.round(event.alpha)}</span>`;
+
+           
+        })
     </script>
     
 </body>
