@@ -86,9 +86,9 @@
 
     <script>
 
-        // const Compass = 'deviceorientation'
+        const Compass = 'deviceorientation';
 
-       window.addEventListener('deviceorientation', (event) => {
+       window.addEventListener(Compass, (event) => {
 
 
             document.querySelector('.inner_box').style.rotate= Math.round(event.alpha) + "deg";
