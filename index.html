@@ -39,8 +39,8 @@
             /* background-color: rgba(0, 0, 0, 0.313); */
             border-radius: 50%;
             rotate: 0deg;
-            /* transition: 1s; */
-            transition-delay: 0.1s;
+            transition: 1s;
+/*             transition-delay: 0.1s; */
           
 
         }
@@ -69,7 +69,7 @@
         addEventListener('deviceorientation', (event) => {
 
 
-            document.querySelector('.inner_box').style.rotate= `${event.alpha}deg`
+            document.querySelector('.inner_box').style.rotate= Math.round(event.alpha) + "deg";
 
             // console.log(event.alpha)
         })
